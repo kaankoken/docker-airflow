@@ -1,4 +1,4 @@
-# VERSION 2.2.3
+# VERSION 2.4.3
 # AUTHOR: Steven Brandt (@ednarb29)
 # DESCRIPTION: Basic Airflow container
 # BUILD: docker build --rm -t ednarb29/docker-airflow .
@@ -13,10 +13,10 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TERM linux
 
 # Airflow
-ARG AIRFLOW_VERSION=2.2.3
+ARG AIRFLOW_VERSION=2.4.3
 ARG AIRFLOW_USER_HOME=/usr/local/airflow
 ARG AIRFLOW_DEPS=""
-ARG PYTHON_DEPS="wtforms==2.3.3"
+ARG PYTHON_DEPS="wtforms==3.0.1"
 ENV AIRFLOW_HOME=${AIRFLOW_USER_HOME}
 
 # Define en_US.
