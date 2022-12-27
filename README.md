@@ -17,21 +17,21 @@ This repository contains **Dockerfile** of [apache-airflow](https://github.com/a
 
 ## Installation
 
-Up to this moment, there is no public image `ednarb29/docker-airflow:2.2.3`, so we have to build it. After cloning this repo, you may do
+Up to this moment, there is no public image `ednarb29/docker-airflow:2.4.3`, so we have to build it. After cloning this repo, you may do
 
-    docker build -t ednarb29/docker-airflow:2.2.3 .
+    docker build -t ednarb29/docker-airflow:2.4.3 .
 
 
 ## Build
 
 Optionally install [Extra Airflow Packages](https://airflow.incubator.apache.org/installation.html#extra-package) and/or python dependencies at build time :
 
-    docker build --rm --build-arg AIRFLOW_DEPS="datadog,dask" -t ednarb29/docker-airflow:2.2.3 .
-    docker build --rm --build-arg PYTHON_DEPS="flask_oauthlib>=0.9" -t ednarb29/docker-airflow:2.2.3 .
+    docker build --rm --build-arg AIRFLOW_DEPS="datadog,dask" -t ednarb29/docker-airflow:2.4.3 .
+    docker build --rm --build-arg PYTHON_DEPS="flask_oauthlib>=0.9" -t ednarb29/docker-airflow:2.4.3 .
 
 or combined
 
-    docker build --rm --build-arg AIRFLOW_DEPS="datadog,dask" --build-arg PYTHON_DEPS="flask_oauthlib>=0.9" -t ednarb29/docker-airflow:2.2.3 .
+    docker build --rm --build-arg AIRFLOW_DEPS="datadog,dask" --build-arg PYTHON_DEPS="flask_oauthlib>=0.9" -t ednarb29/docker-airflow:2.4.3 .
 
 Don't forget to update the airflow images in the docker-compose files to ednarb29/docker-airflow:latest.
 
@@ -41,7 +41,7 @@ Make sure to modify the passwords in the secrets directory.
 
 By default, docker-airflow runs Airflow with **SequentialExecutor** :
 
-    docker run -d -p 8080:8080 ednarb29/docker-airflow:2.2.3 webserver
+    docker run -d -p 8080:8080 ednarb29/docker-airflow:2.4.3 webserver
 
 If you want to run another executor, use the other docker-compose.yml files provided in this repository.
 
