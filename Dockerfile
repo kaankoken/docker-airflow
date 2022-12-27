@@ -1,12 +1,12 @@
 # VERSION 2.4.3
-# AUTHOR: Steven Brandt (@ednarb29)
+# AUTHOR: Yong Shao (@serraview)
 # DESCRIPTION: Basic Airflow container
-# BUILD: docker build --rm -t ednarb29/docker-airflow .
-# SOURCE: https://github.com/ednarb29/docker-airflow
-# BASED ON: https://github.com/puckel/docker-airflow (Matthieu "Puckel_" Roisil)
+# BUILD: docker build --rm -t serraview/docker-airflow .
+# SOURCE: https://github.com/serraview/docker-airflow
+# BASED ON: https://github.com/ednarb29/docker-airflow
 
 FROM python:3.10-slim-buster
-LABEL maintainer="ednarb29"
+LABEL maintainer="serraview"
 
 # Never prompt the user for choices on installation/configuration of packages
 ENV DEBIAN_FRONTEND noninteractive
