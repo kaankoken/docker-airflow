@@ -1,12 +1,12 @@
 # docker-airflow
-[![CI status](https://github.com/ednarb29/docker-airflow/workflows/CI/badge.svg?branch=master)](https://github.com/ednarb29/docker-airflow/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush)
-[![Docker Build status](https://img.shields.io/docker/build/ednarb29/docker-airflow?style=plastic)](https://hub.docker.com/r/ednarb29/docker-airflow/tags?ordering=last_updated)
+[![CI status](https://github.com/serraview/docker-airflow/workflows/CI/badge.svg?branch=master)](https://github.com/ednarb29/docker-airflow/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush)
+[![Docker Build status](https://img.shields.io/docker/build/serraview/docker-airflow?style=plastic)](https://hub.docker.com/r/serraview/docker-airflow/tags?ordering=last_updated)
 
-[![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://hub.docker.com/r/ednarb29/docker-airflow/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/ednarb29/docker-airflow.svg)]()
-[![Docker Stars](https://img.shields.io/docker/stars/ednarb29/docker-airflow.svg)]()
+[![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://hub.docker.com/r/serraview/docker-airflow/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/serraview/docker-airflow.svg)]()
+[![Docker Stars](https://img.shields.io/docker/stars/serraview/docker-airflow.svg)]()
 
-This repository contains **Dockerfile** of [apache-airflow](https://github.com/apache/incubator-airflow) for [Docker](https://www.docker.com/)'s [automated build](https://registry.hub.docker.com/u/ednarb29/docker-airflow/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
+This repository contains **Dockerfile** of [apache-airflow](https://github.com/apache/incubator-airflow) for [Docker](https://www.docker.com/)'s [automated build](https://registry.hub.docker.com/u/serraview/docker-airflow/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
 
 ## Informations
 
@@ -17,23 +17,23 @@ This repository contains **Dockerfile** of [apache-airflow](https://github.com/a
 
 ## Installation
 
-Up to this moment, there is no public image `ednarb29/docker-airflow:2.4.3`, so we have to build it. After cloning this repo, you may do
+Up to this moment, there is no public image `serraview/docker-airflow:2.4.3`, so we have to build it. After cloning this repo, you may do
 
-    docker build -t ednarb29/docker-airflow:2.4.3 .
+    docker build -t serraview/docker-airflow:2.4.3 .
 
 
 ## Build
 
 Optionally install [Extra Airflow Packages](https://airflow.incubator.apache.org/installation.html#extra-package) and/or python dependencies at build time :
 
-    docker build --rm --build-arg AIRFLOW_DEPS="datadog,dask" -t ednarb29/docker-airflow:2.4.3 .
-    docker build --rm --build-arg PYTHON_DEPS="flask_oauthlib>=0.9" -t ednarb29/docker-airflow:2.4.3 .
+    docker build --rm --build-arg AIRFLOW_DEPS="datadog,dask" -t serraview/docker-airflow:2.4.3 .
+    docker build --rm --build-arg PYTHON_DEPS="flask_oauthlib>=0.9" -t serraview/docker-airflow:2.4.3 .
 
 or combined
 
-    docker build --rm --build-arg AIRFLOW_DEPS="datadog,dask" --build-arg PYTHON_DEPS="flask_oauthlib>=0.9" -t ednarb29/docker-airflow:2.4.3 .
+    docker build --rm --build-arg AIRFLOW_DEPS="datadog,dask" --build-arg PYTHON_DEPS="flask_oauthlib>=0.9" -t serraview/docker-airflow:2.4.3 .
 
-Don't forget to update the airflow images in the docker-compose files to ednarb29/docker-airflow:latest.
+Don't forget to update the airflow images in the docker-compose files to serraview/docker-airflow:latest.
 
 ## Usage
 
@@ -41,7 +41,7 @@ Make sure to modify the passwords in the secrets directory.
 
 By default, docker-airflow runs Airflow with **SequentialExecutor** :
 
-    docker run -d -p 8080:8080 ednarb29/docker-airflow:2.4.3 webserver
+    docker run -d -p 8080:8080 serraview/docker-airflow:2.4.3 webserver
 
 If you want to run another executor, use the other docker-compose.yml files provided in this repository.
 
@@ -57,7 +57,7 @@ NB : If you want to have DAGs example loaded (default=False), you've to set the 
 
 `LOAD_EX=n`
 
-    docker run -d -p 8080:8080 -e LOAD_EX=y ednarb29/docker-airflow:2.4.3
+    docker run -d -p 8080:8080 -e LOAD_EX=y serraview/docker-airflow:2.4.3
 
 If you want to use Ad hoc query, make sure you've configured connections:
 Go to Admin -> Connections and Edit "postgres_default" set this values (equivalent to values in airflow.cfg and secrets/*.env) :
@@ -68,7 +68,7 @@ Go to Admin -> Connections and Edit "postgres_default" set this values (equivale
 
 For encrypted connection passwords (in Local or Celery Executor), you must have the same fernet_key. By default docker-airflow generates the fernet_key at startup, you have to set an environment variable in the docker-compose (ie: docker-compose-LocalExecutor.yml) file to set the same key accross containers. To generate a fernet_key :
 
-    docker run ednarb29/docker-airflow:2.4.3 python -c "from cryptography.fernet import Fernet; FERNET_KEY = Fernet.generate_key().decode(); print(FERNET_KEY)"
+    docker run serraview/docker-airflow:2.4.3 python -c "from cryptography.fernet import Fernet; FERNET_KEY = Fernet.generate_key().decode(); print(FERNET_KEY)"
 
 ## Configuring Airflow
 
