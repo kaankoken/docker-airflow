@@ -5,7 +5,7 @@
 # SOURCE: https://github.com/ednarb29/docker-airflow
 # BASED ON: https://github.com/puckel/docker-airflow (Matthieu "Puckel_" Roisil)
 
-FROM python:3.8-slim-buster
+FROM python:3.10-slim-buster
 LABEL maintainer="ednarb29"
 
 # Never prompt the user for choices on installation/configuration of packages
