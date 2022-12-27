@@ -57,7 +57,7 @@ NB : If you want to have DAGs example loaded (default=False), you've to set the 
 
 `LOAD_EX=n`
 
-    docker run -d -p 8080:8080 -e LOAD_EX=y ednarb29/docker-airflow:2.2.3
+    docker run -d -p 8080:8080 -e LOAD_EX=y ednarb29/docker-airflow:2.4.3
 
 If you want to use Ad hoc query, make sure you've configured connections:
 Go to Admin -> Connections and Edit "postgres_default" set this values (equivalent to values in airflow.cfg and secrets/*.env) :
