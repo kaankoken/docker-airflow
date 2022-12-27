@@ -1,5 +1,5 @@
 # docker-airflow
-[![CI status](https://github.com/serraview/docker-airflow/workflows/CI/badge.svg?branch=master)](https://github.com/ednarb29/docker-airflow/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush)
+[![CI status](https://github.com/serraview/docker-airflow/workflows/CI/badge.svg?branch=master)](https://github.com/serraview/docker-airflow/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush)
 [![Docker Build status](https://img.shields.io/docker/build/serraview/docker-airflow?style=plastic)](https://hub.docker.com/r/serraview/docker-airflow/tags?ordering=last_updated)
 
 [![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://hub.docker.com/r/serraview/docker-airflow/)
@@ -117,7 +117,7 @@ This can be used to scale to a multi node setup using docker swarm.
 
 If you want to run other airflow sub-commands, such as `list_dags` or `clear` you can do so like this:
 
-    docker run --rm -ti ednarb29/docker-airflow:2.4.3 airflow list_dags
+    docker run --rm -ti serraview/docker-airflow:2.4.3 airflow list_dags
 
 or with your docker-compose set up like this:
 
