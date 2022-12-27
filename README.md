@@ -117,7 +117,7 @@ This can be used to scale to a multi node setup using docker swarm.
 
 If you want to run other airflow sub-commands, such as `list_dags` or `clear` you can do so like this:
 
-    docker run --rm -ti ednarb29/docker-airflow:2.2.3 airflow list_dags
+    docker run --rm -ti ednarb29/docker-airflow:2.4.3 airflow list_dags
 
 or with your docker-compose set up like this:
 
@@ -125,8 +125,8 @@ or with your docker-compose set up like this:
 
 You can also use this to run a bash shell or any other command in the same environment that airflow would be run in:
 
-    docker run --rm -ti ednarb29/docker-airflow:2.2.3 bash
-    docker run --rm -ti ednarb29/docker-airflow:2.2.3 ipython
+    docker run --rm -ti ednarb29/docker-airflow:2.4.3 bash
+    docker run --rm -ti ednarb29/docker-airflow:2.4.3 ipython
 
 # Simplified SQL database configuration using PostgreSQL
 
