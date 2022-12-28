@@ -3,7 +3,7 @@
 # DESCRIPTION: Basic Airflow container
 # BUILD: docker build --rm -t serraview/docker-airflow .
 # SOURCE: https://github.com/serraview/docker-airflow
-# BASED ON: https://github.com/ednarb29/docker-airflow
+# BASED ON: https://github.com/ednarb29/docker-airflow and https://github.com/ednarb29/docker-airflow 
 
 FROM python:3.10-slim-buster
 LABEL maintainer="serraview"
