@@ -5,15 +5,15 @@
 # SOURCE: https://github.com/serraview/docker-airflow
 # BASED ON: https://github.com/ednarb29/docker-airflow and https://github.com/ednarb29/docker-airflow 
 
-FROM python:3.10-slim-buster
-LABEL maintainer="serraview"
+FROM python:3.11-slim-buster
+# LABEL maintainer="serraview"
 
 # Never prompt the user for choices on installation/configuration of packages
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM linux
 
 # Airflow
-ARG AIRFLOW_VERSION=2.4.3
+ARG AIRFLOW_VERSION=2.5.0
 ARG AIRFLOW_USER_HOME=/usr/local/airflow
 ARG AIRFLOW_DEPS=""
 ARG PYTHON_DEPS="wtforms==3.0.1"
