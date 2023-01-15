@@ -1,5 +1,12 @@
 version: '3.9'
 services:
+    airflow:
+        container_name: docker-airflow
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+
     postgres:
         image: postgres:9.6
         environment:
@@ -13,10 +20,12 @@ services:
                 max-file: "3"
 
     webserver:
-        image: serraview/docker-airflow:2.4.3
+        image: docker-airflow
         restart: always
         depends_on:
+            - airflow
             - postgres
+            - redis
         environment:
             - LOAD_EX=n
             - EXECUTOR=Local
@@ -40,3 +49,16 @@ services:
             interval: 30s
             timeout: 30s
             retries: 3
+    
+    redis:
+        image: 'redis:5.0.5'
+        command: [
+            "bash", "-c",
+            '
+            docker-entrypoint.sh
+            --requirepass $${REDIS_PASSWORD}
+            '
+        ]
+        restart: always
+        env_file:
+            - secrets/redis.env

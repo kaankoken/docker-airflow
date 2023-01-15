@@ -1,5 +1,12 @@
 version: '3.9'
 services:
+    airflow:
+        container_name: docker-airflow
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+
     redis:
         image: 'redis:5.0.5'
         command: [
@@ -31,9 +38,9 @@ services:
             retries: 3
 
     webserver:
-        image: serraview/docker-airflow:2.4.3
-        restart: always
+        image: docker-airflow
         depends_on:
+            - airflow
             - postgres
             - redis
         environment:
@@ -59,9 +66,10 @@ services:
             retries: 3
 
     flower:
-        image: serraview/docker-airflow:2.4.3
+        image: docker-airflow
         restart: always
         depends_on:
+            - airflow
             - redis
         environment:
             - EXECUTOR=Celery
@@ -75,9 +83,10 @@ services:
         command: celery flower
 
     scheduler:
-        image: serraview/docker-airflow:2.4.3
+        image: docker-airflow
         restart: always
         depends_on:
+            - airflow
             - webserver
         volumes:
             - "./dags:${AIRFLOW_DAG_DIR}"
@@ -95,9 +104,10 @@ services:
         command: scheduler
 
     worker:
-        image: serraview/docker-airflow:2.4.3
+        image: docker-airflow
         restart: always
         depends_on:
+            - airflow
             - scheduler
         volumes:
             - "./dags:${AIRFLOW_DAG_DIR}"
